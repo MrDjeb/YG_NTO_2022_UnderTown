@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link rel="stylesheet" href="/static/css/style.css">
+
+        <link rel="shortcut icon" href="/static/img/logo.png" type="image/x-icon">
+
+        <title>Регистрация</title>
+
+        <script src="/static/js/change_back.js"></script>
+    </head>
+    <body>
+       <div class="main-bar" style="width: 100%">
+        <div class="main-bar__navbar">
+            <img style="height: 100px; margin-left: 5px;" src="/static/img/logo.png" alt="logo">
+        </div>
+        <div class="main-bar__reg-error">
+            <div class="main-bar__reg-error__log">
+                <form class="registr" action="sing_up" method="post">
+					<span class="txt txt__title">Регистрация</span>
+
+                    <div class="txt txt__up">
+                        <span>Фамилия</span>
+                    </div>
+                    <div>
+                        <input  type="text" name="surname" >
+                    </div>
+                    <div class="txt txt__up">
+                        <span>Имя</span>
+                    </div>
+                    <div>
+                        <input  type="text" name="name" >
+                    </div>
+                    <div class="txt txt__up">
+                        <span>Отчество</span>
+                    </div>
+                    <div>
+                        <input  type="text" name="patronymic" >
+                    </div>
+                    <div class="txt txt__up">
+                        <span>E-mail</span>
+                    </div>
+                    <div>
+                        <input  type="text" name="email" >
+                    </div>
+                    <div class="txt txt__up">
+                        <span>Телефон (индентификатор)</span>
+                    </div>
+                    <div>
+                        <input  type="text" name="phone" >
+                    </div>
+                    <div class="txt txt__up">
+                        <span>Номер палаты</span>
+                    </div>
+                    <div>
+                        <input  type="text" name="roomId" >
+                    </div>
+                    
+
+                    <button class="button" type="submit">
+                        Зарегистрироваться
+                    </button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,3 @@
+C:/Users/artem/CLionProjects/NTO_Discovery/cmake-build-debug/CMakeFiles/NTO_Discovery.elf.dir
+C:/Users/artem/CLionProjects/NTO_Discovery/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/artem/CLionProjects/NTO_Discovery/cmake-build-debug/CMakeFiles/rebuild_cache.dir

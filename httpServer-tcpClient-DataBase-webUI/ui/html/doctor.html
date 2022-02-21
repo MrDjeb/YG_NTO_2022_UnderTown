@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <link rel="shortcut icon" href="/static/img/logo.png" type="image/x-icon">
+
+    <script src="/static/js/alert.js"></script>
+</head>
+<body>
+    <div class="client-bar">
+        <div class="client-bar__navbar">
+            <img src="/static/img/logo.png" alt="logo">
+            <div class="client-bar__navbar__text">
+                <div class="client-bar__navbar__text__name">
+                    <p>{{ .In_Name }}</p>
+                </div>
+                <div class="client-bar__navbar__text__status">
+                    <p>Доктор</p>
+                </div>
+                <div class="client-bar__navbar__text__rec">
+                    <a href="#">ред.</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="client-bar__main-info">
+            <div class="client-bar__main-info__list">
+                <div style="padding-bottom: 25px; margin-left: 15%;">
+                    <form action="doctor{{ .UrlId }}" method="post">
+                        <select class="choose" name="name_pat">
+                            <option disabled selected>Пациенты</option>
+                            {{range .Phones}}
+                            <option value="{{.}}">{{.}}</option>
+                            {{end}}
+                        </select>
+                        <input type="submit" class="button_choose" value="Выбрать">
+                    </form>
+                </div>
+
+                <span class="client-room">Комната №: {{ .RoomId }} </span>
+                <p>Температура: {{ .Temperature }} ℃</p>
+                <p>Влажность: {{ .Humidity }}%</p>
+                <p>Освещенность: {{ .Illumination }}%</p>
+                <p>Энергопотр.: {{ .Energy }} Вт*ч</p>
+                
+                
+                    <div class="activate">
+                        <ul>
+                            <li>В палате людей: <b>{{ .Humans }}</b></li>
+                            <li>Дверь <b>{{ .Door }}</b></li>
+                            <li>Нагреватель <b>{{ .Heater }}</b></li>
+                            <li>Вентилятор <b>{{ .Vent }}</b></li>
+                        </ul>
+                    </div>
+            </div>
+            <div class="client-bar__main-info__table">
+                <h3>{{ .Name }} {{ .Surname }} {{ .Patronymic }}</h3>
+                <h4 style="font-weight: bold;">Комната №: {{ .RoomId }}</h4>
+                <h5>Тел.: {{ .Phone }}</h5>
+                <h5>E-mail: {{ .Mail }}</h5>
+                <h5>Вес: {{ .Weight }} кг</h5>
+
+                <div class="client-bar__main-info__table__records">
+                    <div class="record">
+                        <div class="record__time">
+                            14:10 12.12.2012
+                        </div>
+                        <div class="record__data">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis neque temporibus, recusandae itaque minima exercitationem, vel nam a magni repellat consequuntur libero sed doloribus repudiandae, nulla totam architecto odit vitae!</p>
+                        </div>
+                    </div>
+                    <div class="record">
+                        <div class="record__time">
+                            14:14 12.12.2012
+                        </div>
+                        <div class="record__data">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero unde nulla ipsam inventore accusamus commodi hic voluptates quasi laboriosam, eaque vel possimus quam similique asperiores non tempora laudantium excepturi culpa. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam quam minus natus commodi laborum laboriosam. Magni est impedit libero voluptatem quod dolore provident, ut vel animi consequuntur porro iste. Deleniti.</p>
+                        </div>
+                    </div>
+                    <div class="record">
+                        <div class="record__time">
+                            14:37 12.12.2012
+                        </div>
+                        <div class="record__data">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero unde nulla ipsam inventore accusamus commodi hic voluptates quasi laboriosam, eaque vel possimus quam similique asperiores non tempora laudantium excepturi culpa. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam quam minus natus commodi laborum laboriosam. Magni est impedit libero voluptatem quod dolore provident, ut vel animi consequuntur porro iste. Deleniti.</p>
+                        </div>
+                    </div>
+                    <div class="record">
+                        <div class="record__time">
+                            14:50 12.12.2012
+                        </div>
+                        <div class="record__data">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis neque temporibus, recusandae itaque minima exercitationem, vel nam a magni repellat consequuntur libero sed doloribus repudiandae, nulla totam architecto odit vitae!</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="new-info" action="NewInfo" method="post">
+                    <h4>Внесите новую информацию: </h4>
+                    <textarea class="input"></textarea>
+                    <input class="new-info__button" type="submit" value="Отправить" name="patInfo">
+                </form>
+
+                <div style="display: block; width: 95%;">
+                    <h3 style="margin-top: 75px; ">Изменение параметров комнаты</h3>
+
+                        <form action="new_temperature" method="post" style="display: flex; justify-content: space-between; height: 80px;">
+                            <div style="padding-top: 10px;">
+                                <span>Значение температуры: </span>
+                                <input class="new-values" type="text" value="{{ .Temperature }}">℃
+                            </div>
+                            <input type="submit" class="refactor" value="Изменить">
+                        </form>
+                        <form action="new_patient" method="post" style="display: flex; justify-content: space-between; height: 80px;">
+                            <div style="padding-top: 10px;">
+                                <span>Значение влажности: </span>
+                                <input class="new-values" type="text" value="{{ .Humidity }}">%
+                            </div>
+                            <input type="submit" class="refactor" value="Изменить">
+                        </form>   
+                        <form action="new_illumination" method="post" style="display: flex; justify-content: space-between; height: 80px;">
+                            <div style="padding-top: 10px;">
+                                <span>Значение освещенности: </span>
+                                <input class="new-values" type="text" value="{{ .Illumination }}">%
+                            </div>
+                            <input type="submit" class="refactor" value="Изменить">
+                        </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
